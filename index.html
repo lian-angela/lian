@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>PORTFOLIO NI LIAN</title>
+  
+  <style>
+  
+  body{
+   background-color: black;
+   font-family: Times New Roman;
+   margin:0;
+  }
+ 
+  nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 10px;
+    text-align: center;
+   font-size: 20px;
+   background: black;
+   z-index: 1000;
+}
+
+  nav a {
+    color: pink;
+    margin: 25px;
+    text-decoration: none;
+}
+  
+  nav a:hover{
+    background-color: purple;
+  }
+ 
+ .container{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding:60px 20px;
+}
+ 
+ .text{
+  flex:1;
+  max-width: 500px;
+  gap: 40px;
+ }
+ 
+ .image{
+  flex: 1.2;
+  max-width: 600px;
+ }
+ 
+ 
+ 
+.intro{
+ font-size: 18px;
+ letter-spacing: 2px;
+ color: white;
+}
+ 
+ .name{
+  font-size: clamp(35px, 5vw, 70px);
+  font-weight: bold;
+  margin: 10px 0;
+  max-width: 500px;
+  color: pink
+ }
+ 
+ .description{
+  font-size: 18px;
+  color: white;
+  maz-width: 500px;
+  margin-top: 15px;
+  line-height: 1.5;
+ }
+ 
+ .image{
+  flex: 1;
+  width: 500px;
+  height: auto;
+ }
+ 
+ .image img{
+  position: relative;
+  width: 100%;
+  height:auto;
+  object-fit: contain;
+  border-radius: 20px;
+  filter: drop-shadow( 0 0 20px pink);
+
+ }
+ 
+ 
+ @media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+   align-items: center;
+   padding-top: 100px;
+  }
+
+  .image {
+   max-width: 250px;
+   margin: 0 auto 20px;
+    margin-top: 20px;
+  }
+
+  .text {
+    max-width: 100%;
+  }
+ 
+ .about{
+  text-align: center;
+  padding: 50px 20px;
+ }
+ 
+ .about h2{
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: pink;
+ }
+ 
+ .about-box{
+  max-width: 700px;
+  margin: auto;
+  background: black;
+  font-size: 16px;
+  padding: 25px;
+  color: white;
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px pink;
+  height:auto;
+  overflow: visible;
+ }
+ 
+ .education {
+  text-align: center;
+  padding: 60px 25px;
+  font-size: 16px;
+  margin: auto;
+}
+
+.education h2 {
+  font-size: 3rem;
+  color: pink;
+  margin-bottom: 40px;
+}
+
+.timeline {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 20px;
+  background: black;
+  backdrop-filter: blur(10px);
+  position: relative;
+  box-shadow: 0 0 20px pink;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 25px;
+  top: 20px;
+  width: 3px;
+  height: 90%;
+  background: lightpink;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  background: pink;
+  border-radius: 50%;
+}
+
+.timeline-item h3 {
+  color: pink;
+  margin-bottom: 5px;
+  font-size: 20px; 
+}
+
+.timeline-item p {
+  color: white;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.projects {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.projects h2 {
+  color: pink;
+  margin-bottom: 20px;
+  font-size: 3rem;
+}
+
+.project {
+  max-width: 700px;
+  margin: 40px auto;
+  border-radius: 15px;
+  padding: 20px;
+  background: black;
+  overflow: hidden;
+  border: 1px solid rgba(255, 105, 180, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px pink;
+  transform: 0.3s;
+}
+
+.project input {
+  display: none;
+}
+
+.project-header {
+  display: block;
+  padding: 20px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.project-header h3 {
+  color: pink;
+  margin: 0;
+ font-size: 40px;
+}
+
+.project-header span {
+  font-size: 30px;
+  opacity: 0.7;
+  color: white;
+}
+
+.project-header::after {
+  content: "▼";
+  float: right;
+  transition: 0.3s;
+  color: white;
+}
+
+.project-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.4s ease;
+  padding: 0 30px;
+  color: white;
+  font-size: 30px;
+}
+ 
+ .project-content{
+  font-size: 16px;
+ }
+
+.project input:checked ~ .project-content {
+  max-height: 400px;
+  padding: 20px;
+}
+
+.project input:checked + .project-header::after {
+  transform: rotate(180deg);
+}
+
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.buttons a {
+  padding: 8px 15px;
+  border-radius: 20px;
+  background: rgba(255, 77, 136, 0.2);
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  transition: 0.3s;
+}
+
+.buttons a:hover {
+  background: #ff4d88;
+}
+ 
+ .contact {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.contact h2 {
+  font-size: 3rem;
+  color: pink;
+  margin-bottom: 20px;
+}
+
+.contact-box {
+  max-width: 700px;
+  margin: auto;
+  padding: 25px;
+  border-radius: 20px;
+  background: black;
+  color: white;
+  line-height: 1.8;
+  box-shadow: 0 0 20px pink;
+}
+
+.contact-box p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+ 
+ .contact-box a {
+  color: pink;
+  text-decoration: none;
+}
+
+.contact-box a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 15px;
+  background: black;
+  color: white;
+  margin-top: 50px;
+  border-top: 1px solid pink;
+  box-shadow: 0 -5px 15px pink;
+}
+ 
+ .footer p {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+ 
+ 
+  </style>
+
+</head>
+
+<body>
+  <nav>
+     <a href="#home"> HOME </a>
+     <a href="#about"> ABOUT ME </a>
+     <a href="#educ"> EDUCATION </a>
+     <a href="#proj"> PROJECT </a>
+     <a href="#contact"> CONTACT ME</a>
+  </nav>
+  
+ <section id="home">
+ <div class="container">
+  <div class="text">
+ <p class="intro"> HI THIS IS </p>
+ <h1 class="name"> LIAN ANGELA G. AMAIZ</h1>
+ <p class="description"> A passionate BSIT student who is continuously learning and improving in web development, embracing challenges and growing through experience.</p>
+ </div>
+ 
+ 
+ <div class="image">
+  <img src="images/pictureko.png" alt=" profile">
+ </div>
+</section>
+ 
+ <hr color="pink">
+ 
+ <section id="about" class="about"> 
+ <h2> ABOUT ME </h2>
+  <div class="about-box">
+ <p> I am Lian, an 18-year-old BSIT student who is passionate about learning and growing in the field of technology. I may not consider myself the smartest, but I believe that dedication and continuous effort matter more. I am a kind and caring person who values understanding others, and although I am naturally quiet, I am very observant of the world around me. I have a deep love for music, which helps me stay inspired and motivated. As I continue my journey, I am eager to learn more about web technologies and improve my skills step by step.</p>
+  </div>
+ </section>
+ 
+ <hr color="pink">
+ 
+<section id="educ" class="education">
+  <h2>EDUCATION</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>College</h3>
+      <p>Currently enrolled in Pampanga State Agricultural University (PSAU)</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Senior High School</h3>
+      <p>Graduated from Ayala High School (AHS)</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Junior High School</h3>
+      <p>Graduated from San Roque National High School (SRNHS)</p>
+    </div>
+   
+   <div class="timeline-item">
+    <h3> Elementary</h3>
+    <p> Graduated from Sto.Niño Elementary School (STES)</p> 
+   </div>
+  </div>
+</section>
+ 
+ 
+ <hr color="pink">
+ 
+ 
+ <section id="proj" class="projects">
+  <h2>PROJECTS</h2>
+
+  <!-- PROJECT 1 -->
+  <div class="project">
+    <input type="radio" name="project" id="p1">
+    <label for="p1" class="project-header">
+      <h3>Midterm Lab Task 01</h3>
+      <span>Resume writing using HTML</span>
+    </label>
+    <div class="project-content">
+      <p>This project is about creating a personal resume using basic HTML structure. It includes headings, paragraphs, lists, and proper formatting to present personal information clearly.</p>
+      <div class="buttons">
+        <a href="#">View Output</a>
+        <a href="#">View Code</a>
+        <a href="#">Source Code</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="project">
+    <input type="radio" name="project" id="p2">
+    <label for="p2" class="project-header">
+      <h3>Midterm Lab Task 02</h3>
+      <span>HTML lists and table</span>
+    </label>
+    <div class="project-content">
+      <p>This project demonstrates the use of HTML lists and tables. It includes ordered and unordered lists, as well as tables to organize and present data properly.</p>
+      <div class="buttons">
+        <a href="#">View Output</a>
+        <a href="#">View Code</a>
+        <a href="#">Source Code</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 3 -->
+  <div class="project">
+    <input type="radio" name="project" id="p3">
+    <label for="p3" class="project-header">
+      <h3>Midterm Lab Task 03</h3>
+      <span>HTML Forms</span>
+    </label>
+    <div class="project-content">
+      <p><p>This project focuses on creating forms using HTML. It includes input fields such as text boxes, radio buttons, checkboxes, and submit buttons to collect user information.</p>
+      <div class="buttons">
+        <a href="#">View Output</a>
+        <a href="#">View Code</a>
+        <a href="#">Source Code</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 4 -->
+  <div class="project">
+    <input type="radio" name="project" id="p4">
+    <label for="p4" class="project-header">
+      <h3>Midterm Lab Task 04</h3>
+      <span>Image Maps</span>
+    </label>
+    <div class="project-content">
+      <p><p>This project demonstrates the use of image maps in HTML, allowing clickable areas within an image to navigate to different links.</p>
+      <div class="buttons">
+        <a href="#">View Output</a>
+        <a href="#">View Code</a>
+        <a href="#">Source Code</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 5 -->
+  <div class="project">
+    <input type="radio" name="project" id="p5">
+    <label for="p5" class="project-header">
+      <h3>Midterm Lab Task 05</h3>
+      <span>Applying CSS to Resume</span>
+    </label>
+    <div class="project-content">
+      <p><p>This project enhances a basic HTML resume by applying CSS for styling, improving layout, colors, and overall design.</p>
+      <div class="buttons">
+        <a href="#">View Output</a>
+        <a href="#">View Code</a>
+        <a href="#">Source Code</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 6 -->
+  <div class="project">
+    <input type="radio" name="project" id="p6">
+    <label for="p6" class="project-header">
+      <h3>Midterm Lab Task 06</h3>
+      <span>HTML Layout using Divs <br> and Semantic Elements</span>
+    </label>
+    <div class="project-content">
+      <p><p>This project focuses on creating structured layouts using divs and semantic HTML elements to organize webpage content.</p>
+      <div class="buttons">
+        <a href="#">View Output</a>
+        <a href="#">View Code</a>
+        <a href="#">Source Code</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 7 -->
+  <div class="project">
+    <input type="radio" name="project" id="p7">
+    <label for="p7" class="project-header">
+      <h3>Final Task 01</h3>
+      <span>Responsive Layout using Flex</span>
+    </label>
+    <div class="project-content">
+      <p><p>This project uses CSS Flexbox to create a responsive and flexible webpage layout that adapts to different screen sizes.</p>
+      <div class="buttons">
+        <a href="#">View Output</a>
+        <a href="#">View Code</a>
+        <a href="#">Source Code</a>
+      </div>
+    </div>
+  </div>
+  </section>
+   
+   <hr color="pink">
+ 
+   <section id="contact" class="contact" id="contact">
+  <h2>CONTACT ME</h2>
+  <div class="contact-box">
+  <p>📧 Email: <a href="galanglian71@gmail.com">galanglian71@gmail.com</a></p>
+<p>🌐 Facebook: 
+  <a href="https://facebook.com/lianangela" target="_blank">
+    fb.com/lianangela
+  </a>
+<p>💻 Phone:
+  <a href="09109087669" target="_blank">
+    09109087669
+  </a>
+</p>
+</div>
+  </section>
+    
+    <footer>
+     <p>©2026 Lian Angela G. Amaz | All Rights Reserved</p>
+
+    </footer>
+ 
+  
+</body>
+</html>
